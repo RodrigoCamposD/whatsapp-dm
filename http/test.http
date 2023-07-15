@@ -1,0 +1,9 @@
+###
+POST http://localhost:3000/api/v1/webhooks/11f0e3ec-0751-448a-bbe3-a33618760991
+Content-Type: application/json
+
+{
+  "phone": "+55 18 99793-5214",
+  "message": "Olá isso é um teste!\nAgora com emoji 😀",
+  "attach": 2
+}

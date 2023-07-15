@@ -1,0 +1,9 @@
+.git
+.gitignore
+.wwebjs_cache
+.wwebjs_auth
+node_modules
+dockerfile
+package-lock.json
+.dockerignore
+http
