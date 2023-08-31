@@ -6,7 +6,7 @@ const apiRoutes = require("./routes/apiRoutes");
 
 const server = express();
 server.use(helmet());
-// server.use(cors({ origin: "http://127.0.0.1" }));
+// server.use(cors({ origin: "https://api.transferenglish.com" }));
 server.use(express.json({ limit: "10kb" }));
 server.use(compression());
 

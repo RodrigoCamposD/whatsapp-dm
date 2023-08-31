@@ -4,7 +4,7 @@ RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.d
 RUN apt-get install -y --no-install-recommends ./google-chrome-stable_current_amd64.deb
 RUN rm google-chrome-stable_current_amd64.deb
 RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && apt-get install -y nodejs
-RUN apt-get clean && apt-get clean && apt-get autoclean
+RUN apt-get clean && apt-get autoclean
 RUN npm update -g && npm install -g pm2
 ENV NODE_ENV production
 RUN groupadd -r node && useradd -m -r -g node node
