@@ -1,7 +1,7 @@
 .git
 .gitignore
 .wwebjs_cache
-.wwebjs_auth
+.wwebjs_auth*
 node_modules
 dockerfile
 package-lock.json

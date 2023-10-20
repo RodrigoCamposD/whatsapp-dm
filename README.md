@@ -84,6 +84,12 @@ const INTRO_IMG_SELECTOR = "div[role='textbox']";
 }
 ```
 
+### Local testing on port 3001
+
+```bash
+npm start
+```
+
 Phone always required, and at least one of message or file.\
 If you send message and together some file the message will be sent like caption.\
 Files can either be from the internet or local, do not forget to take into account that in the case of files from the internet, each time you send the file, the file will be downloaded, keep in mind bandwidth consumption.
