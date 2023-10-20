@@ -1,9 +1,0 @@
-###
-POST http://localhost:3002/custom_uuid2
-Content-Type: application/json
-
-{
-  "phone": "+55 18 99778-4559",
-  "message": "Olá isso é um teste!\nAgora com emoji 😀",
-  "file": "https://content.app-sources.com/s/15952236928162213/uploads/Images/2IMAGEM_1-0904605.png"
-}
