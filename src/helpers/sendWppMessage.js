@@ -7,7 +7,7 @@ const wait = () => {
   });
 };
 
-const sendChatMessage = async (chat, message = null) => {
+const sendChatMessage = async (chat, message) => {
   try {
     chat.sendStateTyping();
     await wait();
@@ -15,9 +15,15 @@ const sendChatMessage = async (chat, message = null) => {
     if (!message.file) {
       await chat.sendMessage(message.msg);
     } else {
-      const filePath = path.join(__dirname, `../files/${message.file}`);
-      const fileMedia = MessageMedia.fromFilePath(filePath);
-      if (!fileMedia) return;
+      let fileMedia;
+      if (message.file.includes("http")) {
+        fileMedia = await MessageMedia.fromUrl(message.file);
+      } else {
+        const filePath = path.join(__dirname, `../../files/${message.file}`);
+        if (!fs.existsSync(filePath)) throw new Error("File not Found");
+        fileMedia = MessageMedia.fromFilePath(filePath);
+      }
+      if (!fileMedia) throw new Error("Media Error");
       const options = {};
       if (fileMedia.mimetype.includes("audio")) {
         options.sendAudioAsVoice = true;
@@ -27,7 +33,7 @@ const sendChatMessage = async (chat, message = null) => {
       }
       await wait();
       chat.clearState();
-      options.caption = message.msg;
+      if (message.msg) options.caption = message.msg;
       await chat.sendMessage(fileMedia, options);
     }
   } catch (error) {

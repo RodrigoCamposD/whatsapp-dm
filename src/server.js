@@ -6,17 +6,9 @@ const apiRoutes = require("./routes/apiRoutes");
 
 const server = express();
 server.use(helmet());
-// server.use(cors({ origin: "https://api.transferenglish.com" }));
+if (process.env.ORIGIN) server.use(cors({ origin: process.env.ORIGIN }));
 server.use(express.json({ limit: "10kb" }));
 server.use(compression());
-
-server.use("/api/v1/webhooks", apiRoutes);
-
-server.all("*", (req, res) =>
-  res.status(404).json({
-    success: false,
-    message: `Rota ${req.originalUrl} não encontrada no servidor!`,
-  })
-);
+server.use(apiRoutes);
 
 module.exports = server;

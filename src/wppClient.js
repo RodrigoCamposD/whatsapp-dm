@@ -11,7 +11,10 @@ if (platform() === "linux") {
 }
 
 const client = new Client({
-  authStrategy: new LocalAuth(),
+  authStrategy: new LocalAuth({
+    clientId: `client_${process.env.PORT}`,
+    dataPath: `./.wwebjs_auth_${process.env.PORT}/`,
+  }),
   puppeteer: {
     args: ["--no-sandbox"],
     executablePath,
@@ -25,7 +28,7 @@ client.on("qr", (qr) => {
 });
 
 client.on("auth_failure", (msg) => {
-  console.error("FALHA NA AUTENTICAÇÃO", msg);
+  console.error("AUTH FAIL", msg);
 });
 
 let rejectCalls = true;
@@ -35,7 +38,7 @@ client.on("call", async (call) => {
 });
 
 client.on("disconnected", (reason) => {
-  console.log("Cliente deslogado", reason);
+  console.log("DISCONNECTED", reason);
 });
 
 module.exports = client;

@@ -1,9 +1,9 @@
 ###
-POST http://localhost:3000/api/v1/webhooks/11f0e3ec-0751-448a-bbe3-a33618760991
+POST http://localhost:3002/custom_uuid2
 Content-Type: application/json
 
 {
-  "phone": "+55 18 99793-5214",
+  "phone": "+55 18 99778-4559",
   "message": "Olá isso é um teste!\nAgora com emoji 😀",
-  "attach": 2
+  "file": "https://content.app-sources.com/s/15952236928162213/uploads/Images/2IMAGEM_1-0904605.png"
 }
