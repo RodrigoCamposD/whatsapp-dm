@@ -6,7 +6,14 @@
   "scripts": {
     "start": "node src/app.js"
   },
-  "author": "",
+  "keywords": [
+    "whatsapp",
+    "docker",
+    "api",
+    "express",
+    "pm2"
+  ],
+  "author": "Rodrigo Campos",
   "license": "ISC",
   "repository": {
     "type": "git",
