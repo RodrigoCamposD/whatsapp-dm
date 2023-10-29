@@ -1,5 +1,6 @@
 const { MessageMedia } = require("whatsapp-web.js");
 const path = require("path");
+const { existsSync } = require("fs");
 
 const wait = () => {
   return new Promise((resolve) => {
@@ -20,7 +21,7 @@ const sendChatMessage = async (chat, message) => {
         fileMedia = await MessageMedia.fromUrl(message.file);
       } else {
         const filePath = path.join(__dirname, `../../files/${message.file}`);
-        if (!fs.existsSync(filePath)) throw new Error("File not Found");
+        if (!existsSync(filePath)) throw new Error("File not Found");
         fileMedia = MessageMedia.fromFilePath(filePath);
       }
       if (!fileMedia) throw new Error("Media Error");

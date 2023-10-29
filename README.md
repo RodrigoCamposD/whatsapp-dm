@@ -9,7 +9,7 @@ You will need to map the ports in the `docker run` command before, adapt to your
 You can create and map a docker volume for local files!
 
 ```bash
-docker pull rdgcode/whatsapp-dm:
+docker pull rdgcode/whatsapp-dm
 # docker volume create dm
 docker run -d --name dm -p 3001:3001 -p 3002:3002 rdgcode/whatsapp-dm
 # docker run -d --name dm -p 3001:3001 -p 3002:3002 -v dm:/home/node/app/files rdgcode/whatsapp-dm
